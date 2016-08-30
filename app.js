@@ -12,6 +12,16 @@ const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
 
 const mount = require('mount-koa-routes');
+const $middlewares = require('mount-middlewares')(__dirname)
+
+// middlewares
+app.use($middlewares.compress)
+app.use($middlewares.bodyparser)
+app.use($middlewares.json)
+app.use($middlewares.serve)
+app.use($middlewares.api)
+app.use($middlewares.views)
+app.use($middlewares.favicon)
 
 // middlewares
 app.use(convert(bodyparser));

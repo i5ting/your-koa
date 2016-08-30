@@ -1,0 +1,11 @@
+extends ../layouts/layout
+
+block content
+  h1 Editing location
+
+  include location
+
+  a(href='/locations/#{ location._id}') Show
+  span |
+  a(href='/locations') Back
+

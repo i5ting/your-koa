@@ -1,0 +1,27 @@
+extends ../layouts/layout
+
+block content
+  h1 Listing locations
+
+  table
+    thead
+      tr
+        each n in ['name','coordinates']
+          th #{n}
+        th(colspan="3")
+    tbody
+      each location in locations
+        tr
+          each n in ['location.name','location.coordinates']
+            td #{ eval(n) }
+          td 
+            a(href='/locations/#{ location._id}') Show
+          td 
+            a(href='/locations/#{ location._id}/edit') Edit
+          td 
+            a(onclick="click_del('/locations/#{ location._id}/')") Delete
+
+  br
+
+  p 
+    a(href='/locations/new') New Location
