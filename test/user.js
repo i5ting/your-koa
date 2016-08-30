@@ -5,7 +5,7 @@ import superkoa from 'superkoa'
 require('../db');
 
 // 2、引入`User` Model
-const User = require('../models/user');
+const User = require('../app/models/user');
 
 // 3、定义`user` Entity
 let user = new User({
