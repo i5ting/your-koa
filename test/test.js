@@ -1,13 +1,18 @@
 import test from 'ava'
-import superkoa from 'superkoa'
+var superkoa = require('superkoa')
+
+var req = superkoa(require('path').resolve(__dirname, '../app'))
 
 test.cb("first test", t => {
-  superkoa('./app.js')
+  // console.log(superkoa('./app'))
+  req
     .get("/")
     .expect(200, function (err, res) {
       t.ifError(err)
       var userId = res.body.id;
-      t.is(res.text, 'Hello Koa', 'res.text == Hello Koa')
+      
+      // console.log(res)
+      t.regex(res.text, /koa2\stitle/, 'res.text == Hello Koa')
       t.end()
     });
 });

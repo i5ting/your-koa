@@ -1,3 +1,5 @@
+require('./db')
+
 const Koa = require('koa');
 const app = new Koa();
 const router = require('koa-router')();
@@ -40,5 +42,6 @@ app.on('error', function(err, ctx){
   logger.error('server error', err, ctx);
 });
 
+console.log('222')
 
 module.exports = app;

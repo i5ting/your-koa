@@ -2,6 +2,8 @@ var mongoose    = require('mongoose');
 var Schema      = mongoose.Schema;
 var MongooseDao = require('mongoosedao');
 
+mongoose.Promise = global.Promise;
+
 var userSchema = new Schema(
     {
       "username":"String",
