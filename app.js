@@ -19,7 +19,7 @@ app.use(convert(json()));
 app.use(convert(logger()));
 app.use(require('koa-static')(__dirname + '/public'));
 
-app.use(views(__dirname + '/views', {
+app.use(views(__dirname + '/app/views', {
   extension: 'jade'
 }));
 
@@ -32,7 +32,7 @@ app.use( (ctx, next) => {
   });
 });
 
-mount(app,  __dirname + '/routes', true);
+mount(app,  __dirname + '/app/routes', true);
 
 app.use(router.routes(), router.allowedMethods());
 // response
