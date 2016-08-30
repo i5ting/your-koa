@@ -9,8 +9,6 @@ router.post('/register2', function(ctx, next) {
   var name = ctx.request.body.username;
   var password = ctx.request.body.password;
   
-  console.log(name)
-  console.log(password)
   var u = new User({
     "username":name,
     "password":password
